@@ -3,51 +3,69 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+
   constructor(props) {
-    super(props)
+    super(props);
 
     //enter state items here
 
     this.state = {
-      box: "#6ED66D" 
+      color: [92, 132, 153]
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+ 
+  //   }
+  //   this.drawBox = this.drawBox.bind(this)
+  // }
+
+  chooseColor() {
+    const random = [];
+    for (let i = 0; i < 3; i++) {
+      random.push(Math.floor(Math.random() * 256));
     }
 
-    this.drawBox = this.drawBox.bind(this)
+
+    return random;
+  }
+
+  handleClick() {
+    this.setState({
+      color: this.chooseColor()
+    });
   }
 
   drawBox() {
-    if (this.state.box === "6ED66D")
-    {
-      return 
+    if (this.state.box === "6ED66D") {
+      return
     }
-    else
-    {
-      return 
+    else {
+      return
     }
   }
 
 
 
-   render() {
-     //Const newColor = 
-    // let someImage = "";
-    // if (this.state.image === "StreetFighter")
-    // {
-    //   someImage = <img alt="tuesday" src="https://media.giphy.com/media/1192zFRwYEf4g8/giphy.gif" />
-    // }
-    // else
-    // {
-    //   someImage = <img alt="kano" src="https://media.giphy.com/media/elAmQxZBB0sJW/giphy.gif" />
-    // }
+  render() {
+    const myStyle = {
+      backgroundColor: this.state.color,
+      width: '10vw',
+      height: '10vh',
+      margin: '-5px',
+      border:  '-5px',
+      padding: '-5px',
+      display: 'inline-block'
+    }
     return (
-      <section className="container">
-        <div className="box" onClick={this.drawBox()}></div>
-        <div className="box" onClick={this.drawBox()}></div>
-        <div className="box" onClick={this.drawBox()}></div>
-        {/* {this.drawBox()} */}
+      <div className="container">
+        <div style={myStyle} onCLick={this.handleClick}></div>
+        {/* <div className="box" style={{backgroundColor: this.setState.color}} onMouseOver={this.handleClick}></div>
+        <div className="box" style={{backgroundColor: this.setState.color}} onClick={this.handleClick}></div>
+        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div>
+        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div>
+        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div> */}
 
-       
-      </section>
+      </div>
     );
   }
 }
