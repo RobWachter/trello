@@ -9,26 +9,27 @@ class App extends Component {
     //enter state items here
 
     this.state = {
-      image: "StreetFighter" // "MortalKombat"
+      box: "#6ED66D" 
     }
 
-    this.drawImage = this.drawImage.bind(this)
+    this.drawBox = this.drawBox.bind(this)
   }
 
-  drawImage() {
-    if (this.state.image === "StreetFighter")
+  drawBox() {
+    if (this.state.box === "6ED66D")
     {
-      return <img alt="tuesday" src="https://media.giphy.com/media/1192zFRwYEf4g8/giphy.gif" />
+      return 
     }
     else
     {
-      return <img alt="kano" src="https://media.giphy.com/media/elAmQxZBB0sJW/giphy.gif" />
+      return 
     }
   }
 
 
 
    render() {
+     //Const newColor = 
     // let someImage = "";
     // if (this.state.image === "StreetFighter")
     // {
@@ -40,10 +41,12 @@ class App extends Component {
     // }
     return (
       <section className="container">
-        <div className="box" onClick={this.drawImage()}>
-        {/* {this.drawImage()} */}
+        <div className="box" onClick={this.drawBox()}></div>
+        <div className="box" onClick={this.drawBox()}></div>
+        <div className="box" onClick={this.drawBox()}></div>
+        {/* {this.drawBox()} */}
 
-        </div>
+       
       </section>
     );
   }
