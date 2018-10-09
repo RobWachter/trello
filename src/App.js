@@ -10,9 +10,10 @@ class App extends Component {
     //enter state items here
 
     this.state = {
-      color: [92, 132, 153]
+      color: this.chooseColor
     };
     this.handleClick = this.handleClick.bind(this);
+    this.chooseColor = this.chooseColor.bind(this);
   }
  
   //   }
@@ -20,13 +21,17 @@ class App extends Component {
   // }
 
   chooseColor() {
-    const random = [];
-    for (let i = 0; i < 3; i++) {
-      random.push(Math.floor(Math.random() * 256));
+    //const random = [];
+    let letters = '0123456789ABCDEF';
+    let random = '#';
+    for (var i = 0; i < 6; i++) {
+        random += letters[Math.floor(Math.random() * 16)];
+
     }
-
-
     return random;
+  }
+  formatColor(ary) {
+    return 'rgb(' + ary.join(', ') + ')';
   }
 
   handleClick() {
@@ -58,12 +63,12 @@ class App extends Component {
     }
     return (
       <div className="container">
-        <div style={myStyle} onCLick={this.handleClick}></div>
-        {/* <div className="box" style={{backgroundColor: this.setState.color}} onMouseOver={this.handleClick}></div>
-        <div className="box" style={{backgroundColor: this.setState.color}} onClick={this.handleClick}></div>
-        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div>
-        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div>
-        <div className="box" style={{backgroundColor: this.state.color}} onMouseOver={this.handleClick}></div> */}
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
+        <div style={myStyle} onMouseOver={this.handleClick}></div>
 
       </div>
     );
